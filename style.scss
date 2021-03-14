@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap');
+
+:root{
+    --fontfamily: 'Manrope', sans-serif;
+    --fontsize: 13px;
+    --gdblue: hsl(217, 19%, 35%);
+    --ddblue: hsl(214, 17%, 51%);
+    --gblue: hsl(212, 23%, 69%);
+    --lblue: hsl(210, 46%, 95%);
+} 
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+box-sizing: border-box;
+font-size: var(--fontsize);
+}
+/* Remove default padding */
+ul[class],
+ol[class] {
+padding: 0;
+}
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+margin: 0;
+}
+/* Set core body defaults */
+body {
+min-height: 100vh;
+scroll-behavior: smooth;
+text-rendering: optimizeSpeed;
+line-height: 1.5;
+}
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class] {
+list-style: none;
+}
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+text-decoration-skip-ink: auto;
+}
+/* Make images easier to work with */
+img {
+max-width: 100%;
+display: block;
+}
+/* Natural flow and rhythm in articles by default */
+article > * + * {
+margin-top: 1em;
+}
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+font: inherit;
+}
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+* {
+animation-duration: 0.01ms !important;
+animation-iteration-count: 1 !important;
+transition-duration: 0.01ms !important;
+scroll-behavior: auto !important;
+}
+}
+.attribution{
+    position: absolute;
+    right: 1em;
+    bottom: 0.5em;
+}
+
+body{
+    background-color:var(--lblue);
+
+   
+}
+.container{
+
+    height: 100vh;
+    max-width: 1440px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+.card{
+font-family: var(--fontfamily);
+background-color: white;
+width: 700px;
+display: flex;
+
+border-radius: 1em;
+margin: 1.5em;
+
+
+.pic{
+   background-image: url("./images/drawers.jpg");
+   background-size: cover;
+   border-top-left-radius: 1em;
+   border-bottom-left-radius: 1em;
+   flex-grow: 1;
+   width: 40%;
+}
+
+.article{
+    width: 60%;
+    flex-grow: 2;
+    h1{
+        color: var(--gdblue);
+        font-size: 1.2rem;
+        padding: 1.5em 40px 0 40px;
+        line-height: 1.5;
+    }
+    p{  
+        color: var(--gblue);
+        padding: 1em 40px 0 40px;
+        font-size: 0.9rem;
+    }
+}
+
+.bottom{
+    width: 100%;
+    display: flex;
+    
+    justify-content: space-between;
+    padding: 3em 40px 3em 40px;
+    .button{
+        width: 2.5em;
+        height: 2.5em;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--lblue);
+        cursor: pointer;
+        position: relative;
+        &:hover{
+            
+            .buttonactive{
+            visibility: visible;
+            }
+        }
+    }
+}
+
+.buttonactive{
+    visibility: visible;
+    position: absolute;
+    width: 250px;
+    background-color: var(--gdblue);
+    opacity: 0;
+    bottom: 5em;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    border-radius: 0.5em;
+    justify-content: center;
+    z-index: 10;
+    transition: opacity 500ms ease-out;
+    span{
+        text-transform: uppercase;
+        color: var(--lblue);
+    }
+    >*{
+        padding: 1em;
+        cursor: pointer;
+    }
+    &:hover{
+        opacity: 1;
+    }
+}
+
+.buttonactive::after{
+    content: "";
+    position: absolute;
+    width: 1.5em;
+    height: 1.5em;
+    background-color: var(--gdblue);
+    transform: rotate(45deg);
+    top: 2.5em;
+    z-index: 9;
+    
+}
+
+.person{
+    display: flex;
+    .name{
+        color:hsl(217, 19%, 35%);
+        font-weight: 700;
+    }
+    img{
+        
+        width: 2.5em;
+        border-radius: 50%;
+        
+    }
+    p{
+        padding: 0px;
+        padding-left: 1em;
+    }
+}
+}
+
+@media (max-width:700px){
+    body{
+        .card{
+            flex-direction: column;
+            width: 340px;
+            .pic{
+                width: 100%;
+                height: 220px;
+            }
+            .article{
+                width: 100%;
+                h1{
+                     padding: 1.5em 30px 0 30px;
+                }
+                .content{
+                    padding: 1.5em 30px 0 30px;
+                }
+            }
+        }
+    }
+}
+
+
+
