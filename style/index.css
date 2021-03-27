@@ -1,0 +1,300 @@
+/* Box sizing rules */
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap");
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-size: 13px;
+}
+
+/* Remove default padding */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  font-family: "Manrope", sans-serif;
+  margin: 0;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Natural flow and rhythm in articles by default */
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    -webkit-animation-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+            animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+:root {
+  --darkgreyblue: hsl(217, 19%, 35%);
+  --darkblue: hsl(214, 17%, 51%);
+  --greyblue: hsl(212, 23%, 69%);
+  --lightblue: hsl(210, 46%, 95%);
+}
+
+body {
+  background-color: var(--lightblue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.card {
+  width: 329px;
+  background-color: white;
+  overflow: hidden;
+  border-radius: 0.5em;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+}
+
+.container {
+  padding: 3em 2.8em 0.8em 2.8em;
+}
+.container h1 {
+  font-size: 1.2rem;
+  padding-bottom: 1.2em;
+  color: var(--darkgreyblue);
+}
+.container p {
+  font-weight: 500;
+  color: var(--darkblue);
+  padding-bottom: 1em;
+}
+
+.bottom {
+  padding-top: 1em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.slide {
+  opacity: 0;
+  transition: opacity 200ms ease-out;
+  position: absolute;
+  display: flex;
+  width: 100%;
+  background-color: var(--darkgreyblue);
+  bottom: 0px;
+  height: 64px;
+  align-items: center;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+.slide p {
+  font-weight: 500;
+  letter-spacing: 3px;
+  color: var(--greyblue);
+}
+.slide img {
+  cursor: pointer;
+}
+@media (min-width: 700px) {
+  .slide {
+    visibility: hidden;
+  }
+}
+
+.changemycolor {
+  fill: white;
+}
+
+.slide > * {
+  margin: 0.75em;
+}
+
+.picture {
+  background-image: url("./drawes-image.jpg");
+  background-size: cover;
+  background-position-y: 30%;
+  height: 202px;
+}
+
+.person {
+  display: flex;
+}
+.person p:nth-child(1) {
+  font-weight: 700;
+  color: var(--darkgreyblue);
+  padding: 0;
+}
+.person p:nth-child(2) {
+  padding-bottom: 0em;
+  font-weight: 500;
+  color: var(--darkblue);
+}
+
+.person img {
+  width: 3em;
+  height: 3em;
+  border-radius: 50%;
+  margin-right: 1em;
+}
+
+.share {
+  width: 2.5em;
+  height: 2.5em;
+  background-color: var(--lightblue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  transition: background-color 300ms ease-out;
+}
+.share .slideup {
+  position: fixed;
+  transform: translateY(-5.5em);
+  justify-content: center;
+  transition: opacity 300ms ease-out;
+  display: flex;
+  align-items: center;
+  width: 250px;
+  background-color: var(--darkgreyblue);
+  border-radius: 0.75em;
+  z-index: 10;
+  opacity: 0;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+@media (max-width: 700px) {
+  .share .slideup {
+    visibility: hidden;
+  }
+}
+.share .slideup p {
+  font-weight: 500;
+  letter-spacing: 3px;
+  color: var(--greyblue);
+}
+.share .slideup img {
+  cursor: pointer;
+}
+.share .slideup > * {
+  padding: 1.4em 0.7em 1.4em 0.7em;
+  z-index: 10;
+}
+.share .slideup::after {
+  content: "";
+  width: 2em;
+  height: 2em;
+  background-color: var(--darkgreyblue);
+  position: absolute;
+  top: 2.8em;
+  transform: rotate(-45deg);
+}
+.share .slideup.onclick {
+  opacity: 1;
+}
+
+.active {
+  background-color: var(--darkblue);
+}
+
+.active svg path {
+  fill: white;
+}
+
+.attribution {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  opacity: 0;
+}
+.attribution:hover {
+  opacity: 1;
+}
+
+@media (min-width: 700px) {
+  .card {
+    flex-direction: row;
+    width: 733px;
+  }
+  .card h1 {
+    font-size: 1.5rem;
+    padding-bottom: 1em;
+  }
+
+  .container {
+    width: 60%;
+    padding-top: 2em;
+    padding-right: 4em;
+  }
+  .container p {
+    font-size: 1rem;
+    padding-bottom: 1em;
+  }
+
+  .picture {
+    height: 100%;
+    width: 40%;
+  }
+
+  .bottom {
+    padding-bottom: 1em;
+  }
+}
+.onclick {
+  opacity: 1;
+}/*# sourceMappingURL=index.css.map */

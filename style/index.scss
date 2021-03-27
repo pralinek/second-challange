@@ -1,0 +1,234 @@
+@use "global";
+@use "variables";
+@use "mixins";
+
+
+body{
+    background-color: var(--lightblue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+   
+}
+
+.card{
+    width: 329px;
+    background-color: white;
+    overflow: hidden;
+    border-radius: 0.5em;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+   
+}
+
+.container{
+    padding: 3em 2.8em 0.8em 2.8em;
+    h1{ 
+        font-size: 1.2rem;
+        padding-bottom: 1.2em;
+        color: var(--darkgreyblue);
+    }
+    p{
+        font-weight: 500;
+        color: var(--darkblue);
+        padding-bottom: 1em;
+    }
+  
+}
+
+.bottom{
+    padding-top: 1em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.slide{
+    opacity: 0;
+    transition: opacity 200ms ease-out;
+    position: absolute;
+    display: flex;
+    width: 100%;
+    background-color: var(--darkgreyblue);
+    bottom: 0px;
+    height: 64px;
+    align-items: center;
+    padding-left: 2em;
+    padding-right: 2em;
+    p{
+        font-weight: 500;
+        letter-spacing: 3px;
+        color: var(--greyblue);
+    }
+    img{
+        cursor: pointer;
+    }
+
+    @include mixins.breakpoint-up(){
+        visibility: hidden;
+    }
+}
+
+
+
+.changemycolor{
+    fill: white;
+}
+
+.slide>*{
+    margin: 0.75em;
+}
+
+
+.picture{
+    
+    background-image: url("./drawes-image.jpg");
+    background-size: cover;
+    background-position-y: 30%;
+    height: 202px;
+   
+   
+}
+
+.person{
+    display: flex;
+    p:nth-child(1){
+        font-weight: 700;
+        color: var(--darkgreyblue);
+        padding: 0;
+    }
+    p:nth-child(2){
+        padding-bottom: 0em;
+        font-weight: 500;
+        color: var(--darkblue);
+    }
+
+}
+.person img{
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+    margin-right: 1em;
+}
+
+.share{
+    width: 2.5em;
+    height: 2.5em;
+    background-color: var(--lightblue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    transition: background-color 300ms ease-out;
+    .slideup{
+      
+        
+        position: fixed;
+        transform: translateY(-5.5em);
+        justify-content: center;
+        transition: opacity 300ms ease-out;
+        display: flex;
+        align-items: center;
+        width: 250px;
+        background-color: var(--darkgreyblue);
+        border-radius: 0.75em;
+        z-index: 10;
+        opacity: 0;
+        box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+        @include mixins.breakpoint-down(){
+            visibility: hidden;
+        }
+    
+        p{
+            font-weight: 500;
+            letter-spacing: 3px;
+            color: var(--greyblue);
+        }
+        img{
+            cursor: pointer;
+        }
+        &>*{
+            padding: 1.4em 0.70em 1.4em 0.70em;
+            z-index: 10;
+        }
+
+        &::after{
+            content: "";
+            width: 2em;
+            height: 2em;
+            background-color: var(--darkgreyblue);
+            position: absolute;
+            top: 2.8em;
+            
+            transform: rotate(-45deg);
+        }
+        &.onclick{
+            opacity: 1;
+        }
+    }
+    
+}
+
+.active{
+    
+    background-color: var(--darkblue);
+}
+
+.active svg path{
+    fill: white;
+}
+
+
+
+.attribution{
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    opacity: 0;
+
+    &:hover{
+        opacity: 1;
+    }
+}
+
+
+@media(min-width: 700px){
+    .card{
+        flex-direction: row;
+        width: 733px;
+        h1{
+            font-size: 1.5rem;
+            padding-bottom: 1em;
+        }
+    }
+
+    .container{
+        width: 60%;
+        padding-top: 2em;
+        padding-right: 4em;
+        p{
+            font-size: 1rem;
+            padding-bottom: 1em;
+        }
+    }
+
+    .picture{
+        height: 100%;
+        width: 40%;
+    }
+
+    .bottom{
+        padding-bottom: 1em;
+    }
+}
+
+.onclick{
+    opacity: 1;
+    
+}
+
