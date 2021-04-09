@@ -112,8 +112,9 @@ body {
 .card {
   font-family: var(--fontfamily);
   background-color: white;
-  width: 700px;
+  width: 960px;
   display: flex;
+  height: 382px;
   border-radius: 1em;
   margin: 1.5em;
 }
@@ -131,24 +132,24 @@ body {
 }
 .card .article h1 {
   color: var(--gdblue);
-  font-size: 1.2rem;
-  padding: 1.5em 40px 0 40px;
-  line-height: 1.5;
+  font-size: 2rem;
+  padding: 1.5em 77px 0em 55px;
 }
 .card .article p {
-  color: var(--gblue);
-  padding: 1em 40px 0 40px;
-  font-size: 0.9rem;
+  color: #6d7f97;
+  padding: 1em 77px 0em 55px;
+  font-size: 1.3rem;
+  font-weight: 500;
 }
 .card .bottom {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 3em 40px 3em 40px;
+  padding: 2.5em 77px 2em 55px;
 }
 .card .bottom .button {
-  width: 2.5em;
-  height: 2.5em;
+  width: 3em;
+  height: 3em;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -157,23 +158,37 @@ body {
   cursor: pointer;
   position: relative;
 }
-.card .bottom .button:hover .buttonactive {
-  visibility: visible;
-}
 .card .buttonactive {
-  visibility: visible;
   position: absolute;
   width: 250px;
   background-color: var(--gdblue);
-  opacity: 0;
+  visibility: hidden;
   bottom: 5em;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   border-radius: 0.5em;
   justify-content: center;
-  z-index: 10;
   transition: opacity 500ms ease-out;
+}
+@media (max-width: 37.5em) {
+  .card .buttonactive {
+    transform: translateY(-20%);
+    display: flex;
+    left: 100%;
+    all: unset;
+    flex-direction: row;
+    width: 340px;
+    height: 40px;
+    background-color: black;
+    visibility: hidden;
+  }
+  .card .buttonactive::after {
+    display: none;
+  }
+}
+.card .buttonactive.active {
+  visibility: visible;
 }
 .card .buttonactive span {
   text-transform: uppercase;
@@ -182,9 +197,6 @@ body {
 .card .buttonactive > * {
   padding: 1em;
   cursor: pointer;
-}
-.card .buttonactive:hover {
-  opacity: 1;
 }
 .card .buttonactive::after {
   content: "";
@@ -204,22 +216,36 @@ body {
   font-weight: 700;
 }
 .card .person img {
-  width: 2.5em;
+  width: 4em;
   border-radius: 50%;
 }
 .card .person p {
+  font-size: 1.3rem;
   padding: 0px;
   padding-left: 1em;
 }
+.card .person .date {
+  color: var(--gblue);
+}
 
-@media (max-width: 700px) {
+@media (max-width: 960px) {
   body .card {
     flex-direction: column;
-    width: 340px;
+    width: 430px;
+    height: 95vh;
   }
   body .card .pic {
     width: 100%;
-    height: 220px;
+    height: 100%;
+    border-top-right-radius: 1em;
+    border-top-left-radius: 1em;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  body .card .bottom {
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-top: 4em;
   }
   body .card .article {
     width: 100%;

@@ -1,9 +1,19 @@
-/*const button = document.querySelector(".button");
+const button = document.querySelector(".button");
 const buttonactive = button.querySelector(".buttonactive");
+const body = document.querySelector("body");
+
+
 
 button.addEventListener("click", ()=>{
-buttonactive.style.opacity = 1;
-setTimeout(()=>{buttonactive.style.opacity =0}, 3000)
+    
+    buttonactive.classList.toggle("active");
+    
+})
+
+
+function checkAge(age){
+    age >= 21 ? console.log("you can drink in united states"):
+    18>= age <21 ? console.log("you can drink in europe"):
+    age < 18 ? console.log("you cannot drink"): console.log("you cannot drink anywhere")
+
 }
-)
-/*
